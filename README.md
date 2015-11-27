@@ -3,7 +3,7 @@
 To pass in your mongos.conf do the following:
 
 ```
-docker run -v /path/to/your/mongos.conf:/etc/mongos.conf travisjeffery/mongos
+docker run -v /path/containing/your/mongosconf:/etc/mongos travisjeffery/mongos
 ```
 
 And in your configuration make sure you set `/var/log/mongodb/mongos.log` as your log file.
