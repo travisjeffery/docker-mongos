@@ -7,5 +7,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y mongodb-org-mongos
 
 COPY mongos /etc/init.d/mongos
+COPY entrypoint.sh /entrypoint.sh
 
-CMD ["service", "mongos", "start"]
+ENTRYPOINT ["/entrypoint.sh"]
