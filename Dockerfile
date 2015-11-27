@@ -9,4 +9,4 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
 COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 27017
-CMD /entrypoint.sh
+CMD ["/entrypoint.sh"]
