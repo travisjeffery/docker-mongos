@@ -2,5 +2,5 @@
 
 mkdir -p /var/log/mongodb
 touch /var/log/mongodb/mongos.log
-mongos --fork --config /etc/mongos/mongos.conf
+mongos --fork --configdb $MONGOS_CONFIGDB
 tail -f /var/log/mongodb/mongos.log
