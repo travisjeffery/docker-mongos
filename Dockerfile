@@ -1,10 +1,12 @@
 FROM ubuntu:trusty
 
-RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y mongodb-org-mongos
+    DEBIAN_FRONTEND=noninteractive apt-get install -y curl
+
+RUN curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.2.1.tgz && \
+    tar -zxvf mongodb-linux-x86_64-3.2.1.tgz && \
+    cp mongodb-linux-x86_64-3.2.1/bin/mongos /usr/bin && \
+    rm -rf mongodb-linux-x86_64-3.2.1*
 
 COPY entrypoint.sh /entrypoint.sh
 
